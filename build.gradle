@@ -1,0 +1,58 @@
+buildscript
+{
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+    }
+
+	repositories {
+        mavenCentral()
+    }
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'helloworld-page'
+    version =  '0.1.0'
+}
+
+group = 'kz.site'
+version = '0.0.1'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+    myBatisSpringVersion = '1.3.1'
+    derbyVersion = '10.13.1.1'
+    jqueryVersion = '3.2.1'
+    bootstrapVersion = '3.3.7-1'
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+
+    // https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter
+    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:$myBatisSpringVersion")
+
+    // https://mvnrepository.com/artifact/org.apache.derby/derby
+	compile("org.apache.derby:derby:$derbyVersion")
+
+    // https://mvnrepository.com/artifact/org.webjars/jquery
+    compile("org.webjars:jquery:$jqueryVersion")
+
+    // https://mvnrepository.com/artifact/org.webjars/bootstrap
+    compile("org.webjars:bootstrap:$bootstrapVersion")
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+    testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
+}
